@@ -1,6 +1,9 @@
 ﻿using PieShopHRM.Shared;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace PieShopHRM.App.Services
 {
@@ -30,7 +33,7 @@ namespace PieShopHRM.App.Services
             var employeeJson =
                 new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
 
-            var response =  await _httpClient.PutAsync("api/employee", employeeJson);
+            await _httpClient.PutAsync("api/employee", employeeJson);
 
         }
 

@@ -1,11 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="d-flex" id="wrapper">
+     <NavMenu />
 
-    <main>
+    <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light border-bottom">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <h3 class="title">Pie Shop HRM </h3>
@@ -19,5 +17,5 @@
             @Body
 
         </div>
-    </main>
+   </div>
 </div>
