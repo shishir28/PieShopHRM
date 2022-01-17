@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using PieShopHRM.App.Services;
-using PieShopHRM.Server.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
