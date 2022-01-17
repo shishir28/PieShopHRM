@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.App", "PieShopHRM.App\PieShopHRM.App.csproj", "{0249A114-AF5E-4FD7-958E-A8D43F30E970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.App", "PieShopHRM.App\PieShopHRM.App.csproj", "{0249A114-AF5E-4FD7-958E-A8D43F30E970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.Shared", "PieShopHRM.Shared\PieShopHRM.Shared.csproj", "{D38CBF89-D98F-4FEC-BE4C-B33A4B107F4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Shared", "PieShopHRM.Shared\PieShopHRM.Shared.csproj", "{D38CBF89-D98F-4FEC-BE4C-B33A4B107F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.Api", "PieShopHRM.Api\PieShopHRM.Api.csproj", "{8C322394-7C9A-468A-8CD1-5359C304AFE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Api", "PieShopHRM.Api\PieShopHRM.Api.csproj", "{8C322394-7C9A-468A-8CD1-5359C304AFE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
