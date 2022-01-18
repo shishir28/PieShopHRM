@@ -27,7 +27,7 @@
                 </NavLink>
 
 
-                <form action="identity/account/logout" method="post">
+                <form action="/logoutidp" method="post">
                     <button type="submit" class="nav-link btn btn-link">
                         <span class="oi oi-list-rich" aria-hidden="true"></span> Logout (@context.User.Identity.Name)
                     </button>
@@ -36,7 +36,7 @@
 
             </Authorized>
             <NotAuthorized>
-                <NavLink class="list-group-item list-group-item-action bg-light" href="identity/account/login">
+                <NavLink class="list-group-item list-group-item-action bg-light" href="/loginidp">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> Login
                 </NavLink>
 
