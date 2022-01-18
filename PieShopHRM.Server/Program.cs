@@ -32,6 +32,8 @@ builder.Services.AddAuthentication(options =>
     options.Scope.Add("profile");
     options.Scope.Add("email");
     options.Scope.Add("pieshophrapi");
+    options.Scope.Add("offline_access");
+
     //options.CallbackPath = "/signin-oidc";
     options.SaveTokens = true;
     //options.Events = new OpenIdConnectEvents()
@@ -40,6 +42,8 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddScoped<TokenProvider>();
+builder.Services.AddScoped<TokenManager>();
+
 
 var app = builder.Build();
 

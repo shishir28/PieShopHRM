@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using PieShopHRM.App
 @using Microsoft.AspNetCore.Authentication
+@using System.Globalization
 
 @namespace PieShopHRM.Server.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -14,7 +15,19 @@
     {
         XsrfToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken,
         AccessToken = await HttpContext.GetTokenAsync("access_token"),
+        RefreshToken = await HttpContext.GetTokenAsync("refresh_token")
     };
+
+    var exipersAt = await HttpContext.GetTokenAsync("exires_at");
+    if (DateTimeOffset.TryParse(exipersAt, CultureInfo.InvariantCulture, DateTimeStyles.None, out var
+    expiration))
+    {
+        InitialTokenState.ExpiresAt = expiration;
+    }
+    else
+    {
+        InitialTokenState.ExpiresAt = DateTime.UtcNow;
+    }
 }_
 
 <component type="typeof(App)" render-mode="ServerPrerendered" param-InitialState="InitialTokenState" />

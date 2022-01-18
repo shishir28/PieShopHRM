@@ -8,6 +8,8 @@
     {
         TokenProvider.XsrfToken = InitialState.XsrfToken;
         TokenProvider.AccessToken = InitialState.AccessToken;
+        TokenProvider.RefreshToken = InitialState.RefreshToken;
+        TokenProvider.ExpiresAt = InitialState.ExpiresAt;
         return base.OnInitializedAsync();
     }
 }

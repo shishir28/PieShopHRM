@@ -10,25 +10,24 @@ namespace PieShopHRM.App.Services
     public class CountryDataService : ICountryDataService
     {
         private readonly HttpClient _httpClient;
-        private readonly TokenProvider _tokenProvider;
+        private readonly TokenManager _tokenManager;
 
-
-        public CountryDataService(HttpClient httpClient, TokenProvider tokenProvider)
+        public CountryDataService(HttpClient httpClient, TokenManager tokenManager)
         {
             _httpClient = httpClient;
-            _tokenProvider = tokenProvider;
+            _tokenManager = tokenManager;
         }
 
         public async Task<IEnumerable<Country>> GetAllCountries()
         {
-            _httpClient.SetBearerToken(_tokenProvider.AccessToken);
+            _httpClient.SetBearerToken(await _tokenManager.RetrieveAccessTokenAsync());
             return await JsonSerializer.DeserializeAsync<IEnumerable<Country>>
                 (await _httpClient.GetStreamAsync($"api/country"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
         public async Task<Country> GetCountryById(int countryId)
         {
-            _httpClient.SetBearerToken(_tokenProvider.AccessToken);
+            _httpClient.SetBearerToken(await _tokenManager.RetrieveAccessTokenAsync());
             return await JsonSerializer.DeserializeAsync<Country>
                 (await _httpClient.GetStreamAsync($"api/country{countryId}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }

@@ -11,25 +11,24 @@ namespace PieShopHRM.App.Services
     {
 
         private readonly HttpClient _httpClient;
-        private readonly TokenProvider _tokenProvider;
+        private readonly TokenManager _tokenManager;
 
-
-        public JobCategoryDataService(HttpClient httpClient, TokenProvider tokenProvider)
+        public JobCategoryDataService(HttpClient httpClient, TokenManager tokenManager)
         {
             _httpClient = httpClient;
-            _tokenProvider = tokenProvider;
+            _tokenManager = tokenManager;
         }
 
         public async Task<IEnumerable<JobCategory>> GetAllJobCategories()
         {
-            _httpClient.SetBearerToken(_tokenProvider.AccessToken);
+            _httpClient.SetBearerToken(await _tokenManager.RetrieveAccessTokenAsync());
             return await JsonSerializer.DeserializeAsync<IEnumerable<JobCategory>>
                 (await _httpClient.GetStreamAsync($"api/jobcategory"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
         public async Task<JobCategory> GetJobCategoryById(int jobCategoryId)
         {
-            _httpClient.SetBearerToken(_tokenProvider.AccessToken);
+            _httpClient.SetBearerToken(await _tokenManager.RetrieveAccessTokenAsync());
             return await JsonSerializer.DeserializeAsync<JobCategory>
                 (await _httpClient.GetStreamAsync($"api/jobcategory/{jobCategoryId}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
