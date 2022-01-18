@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using PieShopHRM.App.Components;
 using PieShopHRM.App.Services;
 using PieShopHRM.Shared;
@@ -16,6 +17,9 @@ namespace PieShopHRM.App.Pages
 
         protected AddEmployeeDialog AddEmployeeDialog { get; set; }
 
+        [CascadingParameter]
+        Task<AuthenticationState> authenticationTaskState { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             Employees = await EmployeeDataService.GetAllEmployees();
@@ -24,7 +28,16 @@ namespace PieShopHRM.App.Pages
 
         public IEnumerable<Employee> Employees { get; set; }
 
-        protected void QuickAddEmployee() =>  AddEmployeeDialog.Show();
+        protected async Task QuickAddEmployee()
+        {
+            var authenticationState = await authenticationTaskState; 
+
+            if(authenticationState.User.Identity.Name=="Shishir")
+            {
+                AddEmployeeDialog.Show();
+            }
+            
+        }
 
         public async void AddEmployeeDialog_OnDialogClose()
         {

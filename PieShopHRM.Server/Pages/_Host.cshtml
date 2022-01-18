@@ -10,7 +10,8 @@
 @{
     var InitialTokenState = new PieShopHRM.App.Services.InitialApplicationState
     {
-        XsrfToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken
+        XsrfToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken,
+        Cookie = HttpContext.Request.Cookies[".AspNetCore.Cookiess"]
     };
 }_
 

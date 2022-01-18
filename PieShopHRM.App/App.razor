@@ -6,11 +6,11 @@
 
     protected override Task OnInitializedAsync()
     {
-
         TokenProvider.XsrfToken = InitialState.XsrfToken;
+        TokenProvider.Cookie = InitialState.Cookie;
         return base.OnInitializedAsync();
     }
- }
+}
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
@@ -31,4 +31,3 @@
     </Router>
 
 </CascadingAuthenticationState>
-
