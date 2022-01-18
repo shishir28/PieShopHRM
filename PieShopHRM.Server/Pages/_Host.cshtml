@@ -5,5 +5,13 @@
 @{
     Layout = "_Layout";
 }
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
 
-<component type="typeof(App)" render-mode="ServerPrerendered" />
+@{
+    var InitialTokenState = new PieShopHRM.App.Services.InitialApplicationState
+    {
+        XsrfToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken
+    };
+}_
+
+<component type="typeof(App)" render-mode="ServerPrerendered" param-InitialState="InitialTokenState" />
