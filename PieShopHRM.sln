@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Shared", "PieSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Api", "PieShopHRM.Api\PieShopHRM.Api.csproj", "{8C322394-7C9A-468A-8CD1-5359C304AFE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.ComponentsLibrary", "PieShopHRM.ComponentsLibrary\PieShopHRM.ComponentsLibrary.csproj", "{135CA952-9D43-4C2B-B434-6B62D691B8A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.ComponentsLibrary", "PieShopHRM.ComponentsLibrary\PieShopHRM.ComponentsLibrary.csproj", "{135CA952-9D43-4C2B-B434-6B62D691B8A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.Server", "PieShopHRM.Server\PieShopHRM.Server.csproj", "{6EF814DC-6A4A-4B0F-B28E-835F8E134AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Server", "PieShopHRM.Server\PieShopHRM.Server.csproj", "{6EF814DC-6A4A-4B0F-B28E-835F8E134AE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.Client", "PieShopHRM.Client\PieShopHRM.Client.csproj", "{7CC8DEDD-0808-44C1-9690-18F87C67DCFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Client", "PieShopHRM.Client\PieShopHRM.Client.csproj", "{7CC8DEDD-0808-44C1-9690-18F87C67DCFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
