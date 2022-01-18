@@ -7,7 +7,7 @@
     protected override Task OnInitializedAsync()
     {
         TokenProvider.XsrfToken = InitialState.XsrfToken;
-        TokenProvider.Cookie = InitialState.Cookie;
+        TokenProvider.AccessToken = InitialState.AccessToken;
         return base.OnInitializedAsync();
     }
 }

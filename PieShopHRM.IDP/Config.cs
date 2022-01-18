@@ -21,7 +21,7 @@ namespace PieShopHRM.IDP
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-               new ApiScope("PieShopHRAPI",
+               new ApiScope("pieshophrapi",
                     "Pie Shop HR API",
                     new [] { "country" })
             };
@@ -42,7 +42,7 @@ namespace PieShopHRM.IDP
                     FrontChannelLogoutUri = "https://localhost:5002/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "email" }
+                    AllowedScopes = { "openid", "profile", "email", "pieshophrapi" }
                 },
             };
     }
