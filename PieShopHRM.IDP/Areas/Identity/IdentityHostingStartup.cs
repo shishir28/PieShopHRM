@@ -10,7 +10,7 @@ using PieShopHRM.IDP.Data;
 
 [assembly: HostingStartup(typeof(PieShopHRM.IDP.Areas.Identity.IdentityHostingStartup))]
 namespace PieShopHRM.IDP.Areas.Identity
-{
+    {
     public class IdentityHostingStartup : IHostingStartup
     {
         public void Configure(IWebHostBuilder builder)
@@ -20,8 +20,14 @@ namespace PieShopHRM.IDP.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("IdentityContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<IdentityContext>();
+                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //    .AddEntityFrameworkStores<IdentityContext>()
+                //    .AddDefaultTokenProviders();
+
+                services.AddIdentity<ApplicationUser, IdentityRole>()
+               .AddEntityFrameworkStores<IdentityContext>()
+               .AddDefaultTokenProviders()
+               ;
             });
         }
     }

@@ -6,9 +6,11 @@ using IdentityServer4;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PieShopHRM.IDP.Areas.Identity.Data;
 
 namespace PieShopHRM.IDP
 {
@@ -25,7 +27,8 @@ namespace PieShopHRM.IDP
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc();
+            //services.AddRazorPages();
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -36,14 +39,15 @@ namespace PieShopHRM.IDP
 
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
-            })
-                .AddTestUsers(TestUsers.Users);
+            }).AddAspNetIdentity<ApplicationUser>();
+                //.AddTestUsers(TestUsers.Users);
 
             // in-memory, code config
             builder.AddInMemoryIdentityResources(Config.IdentityResources);
             builder.AddInMemoryApiScopes(Config.ApiScopes);
 
             builder.AddInMemoryClients(Config.Clients);
+            builder.Services.AddTransient<IEmailSender, DummyEmailSender>();
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
@@ -75,7 +79,9 @@ namespace PieShopHRM.IDP
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();                
+                endpoints.MapRazorPages();
             });
         }
     }
